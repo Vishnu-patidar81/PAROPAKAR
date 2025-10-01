@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Donation Home</title>
+<style>
+  /* Root colors and variables */
+  :root {
+    --primary:#d32f2f;
+    --secondary:#f44336;
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --muted:#6b7280;
+    --shadow:0 6px 18px rgba(33,33,33,0.08);
+    --radius:12px;
+    --accent:#b71c1c;
+  }
+
+  body {
+    margin:0;
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background:linear-gradient(180deg, #f3f6fb 0%, #ffffff 100%);
+    color:#1f2937;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: var(--primary);
+    text-align: center;
+  }
+
+  p.quote {
+    font-size: 18px;
+    font-style: italic;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 700px;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .buttons a {
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    color: white;
+    background: var(--primary);
+  }
+
+  .buttons a:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .search-box {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 60px;
+  }
+
+  .search-box input {
+    flex:1;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    border:1px solid #e6eef6;
+    font-size: 16px;
+    outline:none;
+  }
+
+  .search-box button {
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    border:none;
+    background: var(--secondary);
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    transition:all 0.3s ease;
+  }
+
+  .search-box button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 80px;
+    font-size: 14px;
+  }
+
+  /* Responsive */
+  @media(max-width:600px){
+    h1{font-size:28px;}
+    p.quote{font-size:16px;}
+    .buttons a{font-size:14px;padding:12px 20px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="container">
+  <h1>Donate Blood, Save Lives</h1>
+  <p class="quote">"Every drop counts. Your donation can give someone a second chance at life."</p>
+
+  <!-- Moved search-box above buttons -->
+  <form action="SearchAll.jsp">
+  <div class="search-box">
+    <input type="text" placeholder="Search Blood groups..." name="bloodgroup">
+        <button type="submit">Search</button>
+  </div>
+  </form>
+
+  <div class="buttons">
+    <a href="RegisterChecker">Register</a>
+    <a href="LoginChecker">Login</a>
+  </div>
+</div>
+
+  <footer>
+    &copy; 2025 Blood Donation Portal. All rights reserved.
+  </footer>
+
+</body>
+</html>

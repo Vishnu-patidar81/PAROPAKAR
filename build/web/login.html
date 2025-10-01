@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blood Donor Login</title>
+<style>
+:root{
+    --bg:#f6f8fb;
+    --card:#ffffff;
+    --accent:#d32f2f;
+    --muted:#6b7280;
+    --input:#eef2f6;
+    --radius:12px;
+    --shadow: 0 6px 18px rgba(33,33,33,0.08);
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+body{margin:0;background:linear-gradient(180deg,#f3f6fb 0%, #ffffff 100%);color:#1f2937}
+.wrap{max-width:500px;margin:60px auto;padding:28px}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;padding:30px} /* padding added */
+h1{text-align:center;color:var(--accent);margin-bottom:20px}
+form{display:grid;gap:16px}
+label{font-size:14px;color:#374151;margin-bottom:4px;display:block}
+.field input{width:100%; padding-left:12px} /* full width + left padding */
+input{background:var(--input);border:1px solid #e6eef6;padding:10px 12px;border-radius:8px;font-size:14px;outline:none}
+input:focus{box-shadow:0 0 0 3px rgba(211,47,47,0.08);border-color:rgba(211,47,47,0.2)}
+button.primary{background:var(--accent);color:white;padding:12px;border-radius:10px;border:none;cursor:pointer;font-size:16px}
+button.primary:hover{background:#b71c1c}
+.hint{text-align:center;font-size:13px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <h1>Login</h1>
+    <form action="LoginChecker" method="POST">
+      <div class="field">
+        <label for="loginMobile">Mobile / Email</label>
+        <input type="text" id="loginMobile" name="email" placeholder="Enter mobile or email" required>
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" placeholder="Enter password" required>
+      </div>
+      <button type="submit" class="primary">Login</button>
+    </form>
+    <p class="hint">Forgot password? Contact admin.</p>
+  </div>
+</div>
+</body>
+</html>

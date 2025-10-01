@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Blood Donor Registration</title>
+        <style>
+            :root{
+                --bg:#f6f8fb;
+                --card:#ffffff;
+                --accent:#d32f2f;
+                --muted:#6b7280;
+                --input:#eef2f6;
+                --radius:12px;
+                --shadow: 0 6px 18px rgba(33,33,33,0.08);
+            }
+            *{
+                box-sizing:border-box;
+                font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial
+            }
+            body{
+                margin:0;
+                background:linear-gradient(180deg,#f3f6fb 0%, #ffffff 100%);
+                color:#1f2937
+            }
+            .wrap{
+                max-width:920px;
+                margin:40px auto;
+                padding:28px
+            }
+            .card{
+                background:var(--card);
+                border-radius:var(--radius);
+                box-shadow:var(--shadow);
+                overflow:hidden
+            }
+            .card-grid{
+                display:grid;
+                grid-template-columns:1fr 420px;
+                gap:0
+            }
+            @media (max-width:880px){
+                .card-grid{
+                    grid-template-columns:1fr;
+                }
+            }
+            .left{
+                padding:28px
+            }
+            .right{
+                background:linear-gradient(180deg, rgba(211,47,47,0.06), rgba(211,47,47,0.02));
+                padding:28px
+            }
+            h1{
+                margin:0 0 8px;
+                font-size:22px
+            }
+            form{
+                display:grid;
+                grid-template-columns:repeat(2,1fr);
+                gap:14px
+            }
+            @media (max-width:660px){
+                form{
+                    grid-template-columns:1fr
+                }
+            }
+
+            label{
+                display:block;
+                font-size:13px;
+                margin-bottom:6px;
+                color:#374151
+            }
+            .field{
+                display:flex;
+                flex-direction:column
+            }
+            input, select, textarea{
+                background:var(--input);
+                border:1px solid #e6eef6;
+                padding:10px 12px;
+                border-radius:8px;
+                font-size:14px;
+                outline:none
+            }
+            textarea{
+                min-height:88px;
+                resize:vertical
+            }
+            .full{
+                grid-column:1 / -1
+            }
+            .hint{
+                font-size:12px;
+                color:var(--muted);
+                margin-top:6px
+            }
+            .actions{
+                display:flex;
+                gap:10px;
+                align-items:center;
+                margin-top:12px
+            }
+            button.primary{
+                background:var(--accent);
+                color:white;
+                padding:10px 14px;
+                border-radius:10px;
+                border:none;
+                cursor:pointer
+            }
+            button.secondary{
+                background:transparent;
+                border:1px solid #e6eef6;
+                padding:10px 12px;
+                border-radius:10px;
+                cursor:pointer
+            }
+            .right .meta{
+                font-size:14px;
+                color:#111827
+            }
+            .muted-block{
+                background:#fff;
+                border-radius:8px;
+                padding:12px;
+                margin-top:12px;
+                border:1px dashed #f3d0d0
+            }
+
+            input:focus, select:focus, textarea:focus{
+                box-shadow:0 0 0 3px rgba(211,47,47,0.08);
+                border-color:rgba(211,47,47,0.2)
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="card">
+                <div class="card-grid">
+                    <div class="left">
+                        <h1>Blood Donor Registration</h1>
+
+                        <form id="donorForm" action="RegisterChecker" method="POST">
+                            <div class="field full">
+                                <label for="name">Full Name <span style="color:var(--accent)">*</span></label>
+                                <input id="name" name="name" type="text" placeholder="e.g., Rahul Sharma" required />
+                            </div>
+
+                            <div class="field">
+                                <label for="mobile">Mobile No <span style="color:var(--accent)">*</span></label>
+                                <input id="mobile" name="mobile" type="tel" placeholder="10-digit mobile" required />
+                            </div>
+
+                            <div class="field">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" placeholder="example@mail.com" />
+                            </div>
+
+                            <div class="field">
+                                <label for="blood">Blood Group <span style="color:var(--accent)">*</span></label>
+                                <select id="blood" name="blood" required>
+                                    <option value="">--Select--</option>
+                                    <option>A+</option><option>A-</option>
+                                    <option>B+</option><option>B-</option>
+                                    <option>O+</option><option>O-</option>
+                                    <option>AB+</option><option>AB-</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label for="age">Age <span style="color:var(--accent)">*</span></label>
+                                <input id="age" name="age" type="number" min="18" max="65" placeholder="18" required />
+                                <div class="hint">Eligible age: 18–65 years</div>
+                            </div>
+
+                            <div class="field full">
+                                <label for="area">Area / Locality <span style="color:var(--accent)">*</span></label>
+                                <input id="area" name="area" type="text" placeholder="Area, City" required />
+                            </div>
+
+                            <div class="field">
+                                <label for="pincode">Pincode</label>
+                                <input id="pincode" name="pincode" type="text" placeholder="6-digit pincode" />
+                            </div>
+
+                            <div class="field">
+                                <label for="password">Password <span style="color:var(--accent)">*</span></label>
+                                <input id="password" name="password" type="password" minlength="6" placeholder="At least 6 characters" required />
+                            </div>
+
+                            <div class="field full">
+                                <label for="diseases">Medical / Diseases Info</label>
+                                <textarea id="diseases" name="diseases" placeholder="Any chronic diseases, surgeries, medications, etc."></textarea>
+                            </div>
+
+<!--                            <div class="field full" style="margin-top:6px">
+                                <label><input id="consent" name="consent" type="checkbox"  /> &nbsp;I confirm that the provided information is correct and I can be contacted.</label>
+                            </div>-->
+
+                            <div class="actions full">
+                                <button type="submit" class="primary">Register</button>
+                                <button type="reset" class="secondary">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <aside class="right">
+                        <div class="meta">
+                            <strong>Tips for Donors</strong>
+                            <div class="muted-block">
+                                <ul style="margin:6px 0 0;padding-left:18px;color:#374151">
+                                    <li>Avoid oily food within 24 hours before donation.</li>
+                                    <li>Mention if you had surgery, tattoo, or transfusion in the last 6 months.</li>
+                                    <li>Do not donate if you have fever/flu, recent COVID infection, or are on certain medications.</li>
+                                    <li>Stay hydrated and eat a light meal before donation.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
